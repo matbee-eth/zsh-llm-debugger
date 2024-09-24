@@ -50,7 +50,7 @@ Before installing the LLM Debugger Zsh Plugin, ensure you have the following:
 
 First, clone the repository to a directory of your choice:
 ```sh
-git clone https://github.com/yourusername/llm_debugger_zsh_plugin.git ~/.oh-my-zsh/custom/plugins/llm_debugger
+git clone https://github.com/matbee-eth/zsh-llm-debugger.git ~/.oh-my-zsh/custom/plugins/llm_debugger
 ```
 
 ### 2. Install Dependencies
@@ -291,7 +291,7 @@ The LLM Debugger leverages OpenAI's GPT models to analyze failed commands and ge
 
 ## Contributing
 
-Contributions are welcome! If you find a bug or have a feature request, please [open an issue](https://github.com/matbee-eth/llm_debugger_zsh_plugin/issues). Pull requests are also appreciated.
+Contributions are welcome! If you find a bug or have a feature request, please [open an issue](https://github.com/matbee-eth/zsh-llm-debugger/issues). Pull requests are also appreciated.
 
 Before contributing, please ensure that your code adheres to the following guidelines:
 
