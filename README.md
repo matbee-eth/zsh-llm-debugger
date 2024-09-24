@@ -9,7 +9,7 @@
 
 ## Video Preview
 
-![Preview](assets/preview.webm)
+[preview.webm](https://github.com/user-attachments/assets/542f505d-1aca-47ed-ba88-240836bc4ca4)
 
 ## Table of Contents
 
