@@ -7,6 +7,10 @@
 
 **LLM Debugger** is a Zsh plugin that enhances your shell experience by leveraging large language models (LLMs) to debug failed commands. When a command prefixed with `?` fails, the plugin analyzes the error and suggests a corrected command, streamlining your workflow and reducing frustration.
 
+## Video Preview
+
+![Preview](assets/preview.webm)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -45,7 +49,6 @@ Before installing the LLM Debugger Zsh Plugin, ensure you have the following:
 ### 1. Clone the Repository
 
 First, clone the repository to a directory of your choice:
-
 ```sh
 git clone https://github.com/yourusername/llm_debugger_zsh_plugin.git ~/.oh-my-zsh/custom/plugins/llm_debugger
 ```
