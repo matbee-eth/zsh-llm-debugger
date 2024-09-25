@@ -10,6 +10,7 @@
 ## Video Preview
 
 [preview.webm](https://github.com/user-attachments/assets/542f505d-1aca-47ed-ba88-240836bc4ca4)
+
 [Local Ollama](https://github.com/user-attachments/assets/1037c736-410b-4ea8-9d8f-d014d07ed51f)
 
 ## Table of Contents
