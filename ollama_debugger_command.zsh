@@ -135,7 +135,7 @@ if [ $exit_status -ne 0 ]; then
     echo "[$(date +"%Y-%m-%d %H:%M:%S")] Error details saved to $temp_json." | tee -a "$log_file"
 
     # Check if Python script exists
-    python_script="shell_debugger.py"
+    python_script="ollama_debugger.py"
     if [ ! -f "$python_script" ]; then
         echo "[$(date +"%Y-%m-%d %H:%M:%S")] Python shell debugger script not found: $python_script" | tee -a "$log_file"
         exit 1

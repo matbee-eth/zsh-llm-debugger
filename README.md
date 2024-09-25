@@ -43,7 +43,7 @@
 Before installing the LLM Debugger Zsh Plugin, ensure you have the following:
 
 - **Zsh Shell**: The plugin is designed for Zsh. Ensure you are using Zsh as your default shell.
-- **Python 3.7+**: Required to run the `llm_debugger.py` script.
+- **Python 3.7+**: Required to run the `openai_debugger.py` script.
 - **OpenAI API Key**: An API key from OpenAI to access their language models.
 
 ## Installation
@@ -102,10 +102,10 @@ Add these to your `.zshrc` or relevant configuration file.
 
 ### 2. Python Script Configuration
 
-The plugin relies on the `llm_debugger.py` script. Ensure it's executable and located in the plugin directory:
+The plugin relies on the `openai_debugger.py` script. Ensure it's executable and located in the plugin directory:
 
 ```sh
-chmod +x ~/.oh-my-zsh/custom/plugins/llm_debugger/llm_debugger.py
+chmod +x ~/.oh-my-zsh/custom/plugins/llm_debugger/openai_debugger.py
 ```
 
 ### 3. Optional: Customize Log File Locations
@@ -158,7 +158,7 @@ The **LLM Debugger Zsh Plugin** consists of two main components:
 
 1. **Zsh Plugin (`llm_debugger.plugin.zsh`)**: Handles user interactions within the Zsh shell, intercepts commands prefixed with `?`, manages key bindings for accepting or canceling suggestions, and communicates with the Python backend for analysis.
 
-2. **Python Script (`llm_debugger.py`)**: Acts as the backend service that interacts with OpenAI's API to analyze failed commands, executes allowed shell functions, and returns suggestions to the Zsh plugin via a FIFO (First-In-First-Out) pipe.
+2. **Python Script (`openai_debugger.py`)**: Acts as the backend service that interacts with OpenAI's API to analyze failed commands, executes allowed shell functions, and returns suggestions to the Zsh plugin via a FIFO (First-In-First-Out) pipe.
 
 ![Architecture Diagram](https://your-diagram-url.com/architecture.png) *(Replace with an actual diagram URL if available)*
 
@@ -171,7 +171,7 @@ The plugin employs a tool-calling mechanism to execute specific shell functions 
    - If the command fails (non-zero exit status), the plugin triggers the debugging process.
 
 2. **Interacting with the Python Backend**:
-   - The failed command details are sent to the `llm_debugger.py` script.
+   - The failed command details are sent to the `openai_debugger.py` script.
    - The Python script gathers comprehensive error details and communicates with the OpenAI API to generate suggestions.
 
 3. **Tool Execution**:
@@ -188,7 +188,7 @@ The plugin employs a tool-calling mechanism to execute specific shell functions 
 To extend the functionality of the LLM Debugger, you can add new tools (functions) that the assistant can utilize. Follow these steps:
 
 1. **Define the Tool in Python**:
-   - Open `llm_debugger.py`.
+   - Open `openai_debugger.py`.
    - Locate the `ALLOWED_FUNCTIONS` dictionary.
    - Add a new entry with the tool's name, description, and parameters.
 

@@ -21,8 +21,8 @@ client = OpenAI()
 # ==========================
 
 # Configuration file path
-CONFIG_FILE = os.path.expanduser('~/.llm_debugger_config.json')
-LOG_FILE = os.path.expanduser('~/.llm_debugger.log')
+CONFIG_FILE = os.path.expanduser('~/.openai_debugger_config.json')
+LOG_FILE = os.path.expanduser('~/.openai_debugger.log')
 logging.basicConfig(
     filename=LOG_FILE,
     filemode='w',
@@ -54,11 +54,11 @@ def save_config(config):
         print(f"Failed to save config file: {e}", file=sys.stderr)
 
 # Fetch environment variables
-OPENAI_API_KEY = os.getenv('LLM_DEBUGGER_OPENAI_API_KEY', '')
+OPENAI_API_KEY = os.getenv('openai_DEBUGGER_OPENAI_API_KEY', '')
 
 # Validate essential environment variables
 if not OPENAI_API_KEY:
-    print("Error: LLM_DEBUGGER_OPENAI_API_KEY is not set.", file=sys.stderr)
+    print("Error: openai_DEBUGGER_OPENAI_API_KEY is not set.", file=sys.stderr)
     sys.exit(1)
 
 # Initialize OpenAI client
@@ -302,7 +302,7 @@ def log_error(details):
     """
     Logs the error details to a specified log file.
     """
-    log_file = os.path.expanduser('~/.llm_debugger_last_error.log')
+    log_file = os.path.expanduser('~/.openai_debugger_last_error.log')
     try:
         with open(log_file, 'w') as f:
             json.dump(details, f, indent=4)
@@ -391,7 +391,7 @@ def process_run(run, thread_id):
         submit_tool_outputs(run, thread_id, tool_outputs)
     # else:
 
-FIFO_PATH = '/tmp/llm_debugger_fifo'
+FIFO_PATH = '/tmp/openai_debugger_fifo'
 
 def create_fifo():
     if not os.path.exists(FIFO_PATH):
@@ -640,7 +640,7 @@ def create_thread_if_not_exists(config):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: llm_debugger.py <command>", file=sys.stderr)
+        print("Usage: openai_debugger.py <command>", file=sys.stderr)
         sys.exit(1)
 
     # Load configuration

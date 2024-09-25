@@ -538,8 +538,8 @@ def main():
 
     # Check if a JSON file path is provided
     if len(sys.argv) != 2:
-        logging.error("Usage: python shell_debugger.py <error_details_json_file>")
-        print("Usage: python shell_debugger.py <error_details_json_file>")
+        logging.error("Usage: python ollama_debugger.py <error_details_json_file>")
+        print("Usage: python ollama_debugger.py <error_details_json_file>")
         sys.exit(1)
 
     # Load error details from the provided JSON file
@@ -564,7 +564,7 @@ def main():
         sys.exit(1)
 
     # Run the async function to interact with the model
-    asyncio.run(run('qwen2.5:32b', error_details))
+    asyncio.run(run('llama3.1:8b', error_details))
 
 # Run the main function
 if __name__ == "__main__":

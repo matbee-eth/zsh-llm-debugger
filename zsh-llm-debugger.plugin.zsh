@@ -5,7 +5,7 @@ export LLM_DEBUGGER_DEBUG=1
 
 # Define paths
 plugin_dir="$(cd "$(dirname "${(%):-%x}")" && pwd)"
-LLM_DEBUGGER_SCRIPT="${plugin_dir}/llm_debugger.py"
+LLM_DEBUGGER_SCRIPT="${plugin_dir}/openai_debugger.py"
 FIFO_PATH="/tmp/llm_debugger_fifo"
 LLM_DEBUGGER_LOG_FILE="$HOME/.llm_debugger_zsh.log"  # Log file for Zsh plugin
 
@@ -57,12 +57,12 @@ llm_debugger_cleanup() {
 
 # Ensure the Python script is executable
 if [[ ! -x "$LLM_DEBUGGER_SCRIPT" ]]; then
-    llm_debugger_debug "llm_debugger.py not found or not executable at $LLM_DEBUGGER_SCRIPT"
-    echo "llm_debugger.py not found or not executable at $LLM_DEBUGGER_SCRIPT"
+    llm_debugger_debug "openai_debugger.py not found or not executable at $LLM_DEBUGGER_SCRIPT"
+    echo "openai_debugger.py not found or not executable at $LLM_DEBUGGER_SCRIPT"
     return 1
 fi
 
-llm_debugger_debug "llm_debugger.py found at $LLM_DEBUGGER_SCRIPT"
+llm_debugger_debug "openai_debugger.py found at $LLM_DEBUGGER_SCRIPT"
 
 # Load the zsh/system module for sysread
 if ! zmodload zsh/system 2>/dev/null; then
@@ -118,7 +118,7 @@ llm_debugger_execute_and_analyze() {
         # Start the Python script in the background without job control
         "$LLM_DEBUGGER_SCRIPT" "$command" >> "$LLM_DEBUGGER_LOG_FILE" 2>&1 &!
         local python_pid=$!
-        llm_debugger_debug "Started llm_debugger.py with PID $python_pid"
+        llm_debugger_debug "Started openai_debugger.py with PID $python_pid"
 
         # Display loading state and read suggestion
         llm_debugger_display_loading_and_read_suggestion "$python_pid"
@@ -157,7 +157,7 @@ llm_debugger_display_loading_and_read_suggestion() {
 
         # Check if Python script has exited unexpectedly
         if ! kill -0 "$python_pid" 2>/dev/null; then
-            llm_debugger_debug "llm_debugger.py process $python_pid exited unexpectedly"
+            llm_debugger_debug "openai_debugger.py process $python_pid exited unexpectedly"
             done=1
         fi
 
